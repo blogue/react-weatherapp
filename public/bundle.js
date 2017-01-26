@@ -57,8 +57,8 @@
 
 	var Main = __webpack_require__(216);
 	var Weather = __webpack_require__(218);
-	var About = __webpack_require__(219);
-	var Examples = __webpack_require__(220);
+	var About = __webpack_require__(220);
+	var Examples = __webpack_require__(221);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -24854,6 +24854,7 @@
 
 	var React = __webpack_require__(1);
 	var Nav = __webpack_require__(217);
+	var Weather = __webpack_require__(218);
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -24863,16 +24864,6 @@
 	      'div',
 	      null,
 	      React.createElement(Nav, null),
-	      React.createElement(
-	        'h2',
-	        null,
-	        'Hello from your friendly React.js Main Component!'
-	      ),
-	      React.createElement(
-	        'p',
-	        null,
-	        'Here\'s some random test text.'
-	      ),
 	      this.props.children
 	    );
 	  }
@@ -24889,7 +24880,8 @@
 	var React = __webpack_require__(1);
 
 	var _require = __webpack_require__(159),
-	    Link = _require.Link;
+	    Link = _require.Link,
+	    IndexLink = _require.IndexLink;
 
 	var Nav = React.createClass({
 	  displayName: 'Nav',
@@ -24897,25 +24889,25 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', border: 'solid lightblue 4px', padding: '5px', borderRadius: '20px' } },
 	      React.createElement(
-	        'h2',
-	        null,
-	        'Nav Component'
+	        'h3',
+	        { style: { marginRight: '50px' } },
+	        'React Weather'
 	      ),
 	      React.createElement(
-	        Link,
-	        { to: '/' },
+	        IndexLink,
+	        { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold', color: 'black', textDecoration: 'none' }, style: { color: '‎blue', textDecoration: 'none', marginRight: '20px' } },
 	        'Get Weather'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: 'about' },
+	        { to: 'about', activeClassName: 'active', activeStyle: { fontWeight: 'bold', color: 'black', textDecoration: 'none' }, style: { color: '‎blue', textDecoration: 'none', marginRight: '20px' } },
 	        'About'
 	      ),
 	      React.createElement(
 	        Link,
-	        { to: 'examples' },
+	        { to: 'examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold', color: 'black', textDecoration: 'none' }, style: { color: '‎blue', textDecoration: 'none', marginRight: '20px' } },
 	        'Examples'
 	      )
 	    );
@@ -24931,15 +24923,21 @@
 	'use strict';
 
 	var React = __webpack_require__(1);
+	var WeatherForm = __webpack_require__(219);
 
 	var Weather = React.createClass({
 	  displayName: 'Weather',
 
 	  render: function render() {
 	    return React.createElement(
-	      'h3',
+	      'div',
 	      null,
-	      'This is where the weather component will go.'
+	      React.createElement(
+	        'h1',
+	        { style: { display: 'flex', justifyContent: 'center' } },
+	        'CHECK WEATHER'
+	      ),
+	      React.createElement(WeatherForm, null)
 	    );
 	  }
 	});
@@ -24948,6 +24946,42 @@
 
 /***/ },
 /* 219 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var WeatherForm = React.createClass({
+	  displayName: 'WeatherForm',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'form',
+	        { style: { display: 'flex', justifyContent: 'center' } },
+	        React.createElement('input', { type: 'text', ref: 'city', placeholder: 'Enter city name', style: { width: '300px', height: '30px', borderRadius: '10px', fontSize: '18px' } }),
+	        React.createElement(
+	          'button',
+	          { style: { background: 'white', color: 'blue', borderStyle: 'inset', borderWidth: '2px 3px', borderColor: 'blue lightblue lightblue blue', borderRadius: '20px' } },
+	          'Submit'
+	        )
+	      ),
+	      React.createElement(
+	        'p',
+	        { style: { display: 'flex', justifyContent: 'center' } },
+	        'THIS IS WHERE THE WEATHER RESULTS GO'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = WeatherForm;
+
+/***/ },
+/* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24969,7 +25003,7 @@
 	module.exports = About;
 
 /***/ },
-/* 220 */
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
