@@ -57,8 +57,8 @@
 
 	var Main = __webpack_require__(216);
 	var Weather = __webpack_require__(218);
-	var About = __webpack_require__(220);
-	var Examples = __webpack_require__(221);
+	var About = __webpack_require__(221);
+	var Examples = __webpack_require__(222);
 
 	ReactDOM.render(React.createElement(
 	  Router,
@@ -24889,7 +24889,7 @@
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', border: 'solid lightblue 4px', padding: '5px', borderRadius: '20px' } },
+	      { style: { display: 'flex', justifyContent: 'flex-start', alignItems: 'center', border: 'solid lightblue 4px', padding: '5px', borderRadius: '10px', marginTop: '-8px' } },
 	      React.createElement(
 	        'h3',
 	        { style: { marginRight: '50px' } },
@@ -24924,6 +24924,7 @@
 
 	var React = __webpack_require__(1);
 	var WeatherForm = __webpack_require__(219);
+	var WeatherMessage = __webpack_require__(220);
 
 	var Weather = React.createClass({
 	  displayName: 'Weather',
@@ -24937,7 +24938,8 @@
 	        { style: { display: 'flex', justifyContent: 'center' } },
 	        'CHECK WEATHER'
 	      ),
-	      React.createElement(WeatherForm, null)
+	      React.createElement(WeatherForm, null),
+	      React.createElement(WeatherMessage, null)
 	    );
 	  }
 	});
@@ -24961,18 +24963,21 @@
 	      null,
 	      React.createElement(
 	        'form',
-	        { style: { display: 'flex', justifyContent: 'center' } },
-	        React.createElement('input', { type: 'text', ref: 'city', placeholder: 'Enter city name', style: { width: '300px', height: '30px', borderRadius: '10px', fontSize: '18px' } }),
+	        null,
 	        React.createElement(
-	          'button',
-	          { style: { background: 'white', color: 'blue', borderStyle: 'inset', borderWidth: '2px 3px', borderColor: 'blue lightblue lightblue blue', borderRadius: '20px' } },
-	          'Submit'
+	          'div',
+	          { style: { display: 'flex', justifyContent: 'center' } },
+	          React.createElement('input', { type: 'text', ref: 'city', placeholder: 'Enter city name', style: { width: '300px', height: '30px', borderRadius: '10px', fontSize: '18px', marginBottom: '10px' } })
+	        ),
+	        React.createElement(
+	          'div',
+	          { style: { display: 'flex', justifyContent: 'center' } },
+	          React.createElement(
+	            'button',
+	            { style: { width: '300px', height: '30px', background: 'white', color: 'blue', borderStyle: 'inset', borderWidth: '2px 3px', borderColor: 'blue lightblue lightblue blue', borderRadius: '20px', fontSize: '20px' } },
+	            'Submit'
+	          )
 	        )
-	      ),
-	      React.createElement(
-	        'p',
-	        { style: { display: 'flex', justifyContent: 'center' } },
-	        'THIS IS WHERE THE WEATHER RESULTS GO'
 	      )
 	    );
 	  }
@@ -24982,6 +24987,28 @@
 
 /***/ },
 /* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var WeatherMessage = React.createClass({
+	  displayName: 'WeatherMessage',
+
+	  render: function render() {
+	    return React.createElement(
+	      'h3',
+	      { style: { display: 'flex', justifyContent: 'center' } },
+	      'It is currently 47 degrees in Portland.'
+	    );
+	  }
+	});
+
+	module.exports = WeatherMessage;
+
+/***/ },
+/* 221 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25003,7 +25030,7 @@
 	module.exports = About;
 
 /***/ },
-/* 221 */
+/* 222 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
